@@ -1,11 +1,22 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import Rectangle1 from "../assets/images/Rectangle1.png";
 
 const HomeLayout = () => {
+  const style = {
+    backgroundImage: `url(${Rectangle1})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    height: "100vh",
+  };
+
   return (
-    <div>
-      <NavBar></NavBar>
-      <Outlet></Outlet>      
+    <div className="relative h-screen">
+      <div style={style} className="absolute inset-0"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="relative z-10 text-white">
+        <Outlet />
+      </div>
     </div>
   );
 };
